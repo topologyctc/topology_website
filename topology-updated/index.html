@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Topology Computer Training Center</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">TC</div>
+        <div class="title">TOPOLOGY<br><span>COMPUTER TRAINING</span></div>
+      </div>
+      <nav id="nav-links">
+        <!-- links injected by JS based on role -->
+      </nav>
+      <div class="sidebar-footer">
+        <div id="current-user">Not logged in</div>
+        <button id="logoutBtn" class="btn small">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1 id="page-title">Dashboard</h1>
+        <div class="search-area">
+          <input id="globalSearch" placeholder="Search students..." />
+        </div>
+      </header>
+
+      <section id="pages" class="pages">
+        <section id="dashboard" class="page active">
+          <div class="cards" id="cardsRow"></div>
+          <div class="panels">
+            <div class="panel">
+              <h3>Recent students</h3>
+              <ul id="recentStudents"></ul>
+            </div>
+            <div class="panel">
+              <h3>Payments overview</h3>
+              <canvas id="paymentsChart" width="300" height="180"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section id="students" class="page">
+          <div class="panel">
+            <h2>Students</h2>
+            <form id="studentForm" class="form-inline">
+              <input name="fullName" placeholder="Full name" required />
+              <input name="course" placeholder="Course" />
+              <input name="phone" placeholder="Phone" />
+              <button class="btn">Add</button>
+            </form>
+            <div id="studentsTableWrap"></div>
+          </div>
+        </section>
+
+        <section id="payments" class="page">
+          <div class="panel">
+            <h2>Record Payment</h2>
+            <form id="paymentForm" class="form-inline">
+              <select name="studentId" id="payStudent"></select>
+              <input name="amount" type="number" placeholder="Amount ETB" required />
+              <select name="method">
+                <option value="cash">Cash</option>
+                <option value="mobile">Mobile Money</option>
+                <option value="card">Card</option>
+              </select>
+              <button class="btn">Record</button>
+            </form>
+            <h3>History</h3>
+            <ul id="paymentsList"></ul>
+          </div>
+        </section>
+
+        <section id="accounts" class="page">
+          <div class="panel">
+            <h2>User Accounts</h2>
+            <form id="registerForm" class="form-inline">
+              <input name="name" placeholder="Name" required />
+              <input name="email" placeholder="Email" required />
+              <select name="role">
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+              </select>
+              <input name="password" type="password" placeholder="Password" required />
+              <button class="btn">Register</button>
+            </form>
+            <div id="usersTableWrap"></div>
+          </div>
+        </section>
+
+        <section id="profile" class="page">
+          <div class="panel">
+            <h2>My Profile</h2>
+            <div id="profileInfo"></div>
+          </div>
+        </section>
+
+        <section id="login" class="page">
+          <div class="panel auth-panel">
+            <h2>Login</h2>
+            <form id="loginForm" class="form-inline">
+              <input name="email" placeholder="Email" required />
+              <input name="password" type="password" placeholder="Password" required />
+              <button class="btn">Login</button>
+            </form>
+            <p class="muted">Default accounts: <strong>admin@topology.edu/admin</strong>, <strong>teacher@topology.edu/teacher</strong>, <strong>student@topology.edu/student</strong></p>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer">© <span id="year"></span> TOPOLOGY COMPUTER TRAINING CENTER</footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
